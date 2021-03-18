@@ -39,6 +39,7 @@ root2.mainloop()
 
 with open('avg_click_log.json', 'r') as file1:
     click_dict = dict(json.load(file1))
+file1.close()
 
 click_dict[f"{time.ctime(time.time())}"] = {
     "Time_Period": f"{list(time_dict.keys())[0]}-->{list(time_dict.keys())[-1]}", "Total_Clicks": clicks,
@@ -48,3 +49,4 @@ print(f"Log saved at: {time.ctime(time.time())}")
 json_object = json.dumps(click_dict, indent=4)
 with open('avg_click_log.json', 'w') as file2:
     file2.write(json_object)
+file2.close()
